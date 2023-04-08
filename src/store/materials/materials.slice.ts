@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { fetchMaterials } from './materials.thunk';
-import { MaterialsListDTO } from 'src/models/materials-dto.type';
+import { MaterialsDTO } from 'src/models/materials-dto.type';
 
 interface MaterialsState {
   isLoading: boolean;
-  materials: MaterialsListDTO;
+  materials: MaterialsDTO;
 }
 
 const initialState: MaterialsState = {
@@ -21,7 +21,7 @@ const materialsSlice = createSlice({
       .addCase(fetchMaterials.pending, (state): void => {
         state.isLoading = true;
       })
-      .addCase(fetchMaterials.fulfilled, (state, action: PayloadAction<MaterialsListDTO>) => {
+      .addCase(fetchMaterials.fulfilled, (state, action: PayloadAction<MaterialsDTO>) => {
         state.isLoading = false;
         state.materials = action.payload;
       })
