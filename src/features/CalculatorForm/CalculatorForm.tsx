@@ -10,16 +10,16 @@ export const CalculatorForm: FC = () => {
     console.log(event);
   };
 
-  const { frames, pipes } = useSelector(materialSelectors.allMaterials);
+  const { sheets, pipes } = useSelector(materialSelectors.allMaterials);
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="frame">
         <Form.Label>Материал</Form.Label>
         <Form.Select>
-          {frames.map((frame) => (
-            <option key={frame.name} value={frame.name}>
-              {frame.name}
+          {sheets.map((sheet) => (
+            <option key={sheet.name} value={sheet.name}>
+              {sheet.name}
             </option>
           ))}
         </Form.Select>

@@ -1,5 +1,5 @@
 import { MaterialPipe } from './material-pipe.interface';
 
-export interface MaterialList extends MaterialPipe {
+export interface MaterialSheet extends MaterialPipe {
   material: 'plastic' | 'metal';
 }
