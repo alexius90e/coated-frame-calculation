@@ -13,7 +13,7 @@ const initialState: CalculatorConfigState = {
 };
 
 const calculatorConfigSlice = createSlice({
-  name: 'materials',
+  name: 'calculatorConfig',
   initialState,
   reducers: {},
   extraReducers(builder) {
