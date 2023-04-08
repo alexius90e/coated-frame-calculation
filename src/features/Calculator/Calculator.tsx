@@ -1,6 +1,6 @@
-import { CalculatorForm } from 'features/CalculatorForm/CalculatorForm';
 import React, { FC } from 'react';
 import './Calculator.scss';
+import { CalculatorForm } from '../CalculatorForm/CalculatorForm';
 
 export const Calculator: FC = () => {
   return (
