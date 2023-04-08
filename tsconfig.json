@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "assets/*": ["src/assets/*"],
-      "features/*": ["src/features/*"],
-      "store/*": ["src/store/*"],
-      "models/*": ["src/models/*"]
+      "assets/*": ["/src/assets/*"],
+      "features/*": ["/src/features/*"],
+      "store/*": ["/src/store/*"],
+      "models/*": ["/src/models/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
