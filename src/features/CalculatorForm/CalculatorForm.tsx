@@ -1,33 +1,38 @@
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import React, { FC, FormEventHandler } from 'react';
 import './CalculatorForm.scss';
+import { useSelector } from 'react-redux';
+import { materialSelectors } from 'src/store/materials/materials.selectors';
 
 export const CalculatorForm: FC = () => {
   const handleSubmit: FormEventHandler = (event: React.FormEvent<Element>) => {
     event.preventDefault();
+    console.log(event);
   };
 
-  const handleChange: FormEventHandler = (event: React.FormEvent<Element>) => {
-    console.log((event.target as HTMLElement).id);
-  };
+  const { frames, pipes } = useSelector(materialSelectors.allMaterials);
 
   return (
-    <Form onSubmit={handleSubmit} onChange={handleChange}>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="frame">
         <Form.Label>Материал</Form.Label>
         <Form.Select>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          {frames.map((frame) => (
+            <option key={frame.name} value={frame.name}>
+              {frame.name}
+            </option>
+          ))}
         </Form.Select>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="pipe">
         <Form.Label>Трубы</Form.Label>
         <Form.Select>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          {pipes.map((pipe) => (
+            <option key={pipe.name} value={pipe.name}>
+              {pipe.name}
+            </option>
+          ))}
         </Form.Select>
       </Form.Group>
 
@@ -49,6 +54,8 @@ export const CalculatorForm: FC = () => {
           <option value="3">Усиленная</option>
         </Form.Select>
       </Form.Group>
+
+      <Button type="submit">Submit form</Button>
     </Form>
   );
 };
