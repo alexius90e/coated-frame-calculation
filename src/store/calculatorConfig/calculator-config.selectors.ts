@@ -37,6 +37,16 @@ const fixes = createSelector(calculatorConfigState, (state): ConfigFix[] => {
   return fixItems as ConfigFix[];
 });
 
+const fixConfigByKey = (key: string) =>
+  createSelector(calculatorConfigState, fixes, (_, fixesConfig): ConfigFix | undefined => {
+    return fixesConfig.find((item) => item.key === key);
+  });
+
+const frameConfigByKey = (key: string) =>
+  createSelector(calculatorConfigState, frames, (_, framesConfig): ConfigFrame | undefined => {
+    return framesConfig.find((item) => item.key === key);
+  });
+
 const config = createSelector(
   calculatorConfigState,
   size,
@@ -52,4 +62,14 @@ const config = createSelector(
   }),
 );
 
-export const calculatorConfigSelectors = { config, length, width, size, frames, materials, fixes };
+export const calculatorConfigSelectors = {
+  config,
+  length,
+  width,
+  size,
+  frames,
+  materials,
+  fixes,
+  fixConfigByKey,
+  frameConfigByKey,
+};

@@ -46,7 +46,7 @@ export const CalculatorForm: FC = () => {
         pipe: pipes.length ? pipes[0].name : '',
         width: width ? width.min : 0,
         length: length ? length.min : 0,
-        frame: frames.length ? frames[0].name : '',
+        frame: frames.length ? frames[0].key : '',
       }),
     );
   }, [sheets, pipes, width, length, frames]);
