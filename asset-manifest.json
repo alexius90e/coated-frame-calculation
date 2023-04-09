@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/coated-frame-calculation/static/css/main.46b2a330.css",
-    "main.js": "/coated-frame-calculation/static/js/main.d4941950.js",
+    "main.css": "/coated-frame-calculation/static/css/main.4ddbc4c2.css",
+    "main.js": "/coated-frame-calculation/static/js/main.e200a47a.js",
     "static/js/787.b3e923d3.chunk.js": "/coated-frame-calculation/static/js/787.b3e923d3.chunk.js",
     "index.html": "/coated-frame-calculation/index.html",
-    "main.46b2a330.css.map": "/coated-frame-calculation/static/css/main.46b2a330.css.map",
-    "main.d4941950.js.map": "/coated-frame-calculation/static/js/main.d4941950.js.map",
+    "main.4ddbc4c2.css.map": "/coated-frame-calculation/static/css/main.4ddbc4c2.css.map",
+    "main.e200a47a.js.map": "/coated-frame-calculation/static/js/main.e200a47a.js.map",
     "787.b3e923d3.chunk.js.map": "/coated-frame-calculation/static/js/787.b3e923d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46b2a330.css",
-    "static/js/main.d4941950.js"
+    "static/css/main.4ddbc4c2.css",
+    "static/js/main.e200a47a.js"
   ]
 }
