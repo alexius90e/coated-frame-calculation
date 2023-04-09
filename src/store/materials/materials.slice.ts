@@ -5,10 +5,12 @@ import { MaterialsDTO } from 'src/models/materials-dto.type';
 interface MaterialsState {
   isLoading: boolean;
   materials: MaterialsDTO;
+  isReady: boolean;
 }
 
 const initialState: MaterialsState = {
   isLoading: false,
+  isReady: false,
   materials: [],
 };
 
@@ -20,13 +22,16 @@ const materialsSlice = createSlice({
     builder
       .addCase(fetchMaterials.pending, (state): void => {
         state.isLoading = true;
+        state.isReady = false;
       })
       .addCase(fetchMaterials.fulfilled, (state, action: PayloadAction<MaterialsDTO>) => {
-        state.isLoading = false;
         state.materials = action.payload;
+        state.isLoading = false;
+        state.isReady = true;
       })
       .addCase(fetchMaterials.rejected, (state) => {
         state.isLoading = false;
+        state.isReady = false;
       });
   },
 });

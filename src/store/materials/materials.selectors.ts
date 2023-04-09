@@ -6,6 +6,8 @@ import { MaterialCustom } from 'src/models/material-custom.interface';
 
 const materialsState = (state: RootState) => state.materials;
 
+const isReady = createSelector(materialsState, (state) => state.isReady);
+
 const allSheets = createSelector(materialsState, (state): MaterialSheet[] => {
   return state.materials.filter((material) => material.type === 'list') as MaterialSheet[];
 });
@@ -22,9 +24,22 @@ const allMaterials = createSelector(materialsState, allSheets, allPipes, allFixe
   return { sheets, pipes, fixes };
 });
 
+const sheetByName = (name: string) =>
+  createSelector(materialsState, allSheets, (_, sheets): MaterialSheet | undefined => {
+    return sheets.find((sheet) => sheet.name === name);
+  });
+
+const pypeByName = (name: string) =>
+  createSelector(materialsState, allPipes, (_, pipes): MaterialPipe | undefined => {
+    return pipes.find((pipe) => pipe.name === name);
+  });
+
 export const materialSelectors = {
   allSheets,
   allPipes,
   allFixes,
   allMaterials,
+  isReady,
+  sheetByName,
+  pypeByName,
 };

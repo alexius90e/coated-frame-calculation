@@ -1,5 +1,5 @@
-import React, { FC, useEffect } from 'react';
 import './Calculator.scss';
+import React, { FC, useEffect } from 'react';
 import { CalculatorForm } from '../CalculatorForm/CalculatorForm';
 import { useAppDispatch } from 'src/store/store';
 import { fetchMaterials } from 'src/store/materials/materials.thunk';
