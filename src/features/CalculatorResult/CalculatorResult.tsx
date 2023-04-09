@@ -9,14 +9,12 @@ import { MaterialSheet } from 'src/models/material-sheet.interface';
 
 interface CalculatorResultProps {
   calculatorValue: CalculatorValue;
-  sheet: MaterialSheet | undefined;
-  pipe: MaterialPipe | undefined;
-  frameConfig: ConfigFrame | undefined;
+  sheet: MaterialSheet;
+  pipe: MaterialPipe;
+  frameConfig: ConfigFrame;
   fix: MaterialCustom;
-  fixConfig: ConfigFix | undefined;
+  fixConfig: ConfigFix;
 }
-
-const sheetLength = 1;
 
 export const CalculatorResult: FC<CalculatorResultProps> = (props) => {
   const { calculatorValue, sheet, pipe, fix, frameConfig, fixConfig } = props;
@@ -25,11 +23,11 @@ export const CalculatorResult: FC<CalculatorResultProps> = (props) => {
 
   const totalSquare: number = Math.round(length * width);
 
-  const sheetsCount = sheet ? Math.ceil(totalSquare / (sheet.width * sheetLength)) : 0;
+  const sheetsCount = Math.ceil(totalSquare / (sheet.width * 1));
 
-  const sheetsPrice = sheet ? sheetsCount * sheet.price : 0;
+  const sheetsPrice = sheetsCount * sheet.price;
 
-  const frameStep = frameConfig?.step ?? 0;
+  const frameStep = frameConfig.step;
 
   const frameCeilCountX = Math.ceil(length / frameStep);
 
@@ -41,11 +39,11 @@ export const CalculatorResult: FC<CalculatorResultProps> = (props) => {
 
   const pipeLength = Math.ceil((frameCeilCountX + 1) * length + (frameCeilCountY + 1) * length);
 
-  const pipesPrice = pipe ? pipeLength * pipe.price : 0;
+  const pipesPrice = pipeLength * pipe.price;
 
-  const fixCount = fixConfig ? fixConfig.value * totalSquare : 0;
+  const fixCount = fixConfig.value * totalSquare;
 
-  const fixesPrice = fix ? Number((fixCount * fix.price).toFixed(1)) : 0;
+  const fixesPrice = Number((fixCount * fix.price).toFixed(1));
 
   const totalPrice = sheetsPrice + pipesPrice + fixesPrice;
 
@@ -72,33 +70,29 @@ export const CalculatorResult: FC<CalculatorResultProps> = (props) => {
           </tr>
         </thead>
         <tbody>
-          {sheet && (
-            <tr>
-              <td>1</td>
-              <td>{sheet.name}</td>
-              <td>{sheet.unit}</td>
-              <td>{sheetsCount}</td>
-              <td>{sheetsPrice}</td>
-            </tr>
-          )}
-          {pipe && (
-            <tr>
-              <td>2</td>
-              <td>{pipe.name}</td>
-              <td>{pipe.unit}</td>
-              <td>{pipeLength}</td>
-              <td>{pipesPrice}</td>
-            </tr>
-          )}
-          {fix && fixConfig && (
-            <tr>
-              <td>3</td>
-              <td>{fix.name}</td>
-              <td>{fix.unit}</td>
-              <td>{fixCount}</td>
-              <td>{fixesPrice}</td>
-            </tr>
-          )}
+          <tr>
+            <td>1</td>
+            <td>{sheet.name}</td>
+            <td>{sheet.unit}</td>
+            <td>{sheetsCount}</td>
+            <td>{sheetsPrice}</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>{pipe.name}</td>
+            <td>{pipe.unit}</td>
+            <td>{pipeLength}</td>
+            <td>{pipesPrice}</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>{fix.name}</td>
+            <td>{fix.unit}</td>
+            <td>{fixCount}</td>
+            <td>{fixesPrice}</td>
+          </tr>
         </tbody>
       </Table>
 

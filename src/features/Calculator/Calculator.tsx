@@ -29,9 +29,11 @@ export const Calculator: FC = () => {
 
   const frameConfig = useSelector(calculatorConfigSelectors.frameConfigByKey(calculatorValue.frame));
 
-  const sheetMaterial = sheet ? sheet.material : '';
+  const sheetMaterial = sheet ? sheet.material : 'plastic';
 
   const fixConfig = useSelector(calculatorConfigSelectors.fixConfigByKey(sheetMaterial));
+
+  const isDataReady = sheet && pipe && fix && frameConfig && fixConfig;
 
   return (
     <main className="calculator">
@@ -40,7 +42,7 @@ export const Calculator: FC = () => {
       </aside>
 
       <section className="calculator__result">
-        <CalculatorResult {...{ calculatorValue, sheet, pipe, fix, frameConfig, fixConfig }} />
+        {isDataReady && <CalculatorResult {...{ calculatorValue, sheet, pipe, fix, frameConfig, fixConfig }} />}
       </section>
     </main>
   );
