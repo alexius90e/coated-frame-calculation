@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# Deployment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://alexius90e.github.io/coated-frame-calculation/
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run deploy`
+
+Deploys the app at gh-pages.\
 
 ### `npm start`
 
